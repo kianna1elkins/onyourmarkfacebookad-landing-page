@@ -8,8 +8,28 @@ July 28–29.
 
 | File | Use it for |
 |------|-----------|
-| `wordpress-custom-html.html` | **Paste into WordPress.** All CSS is namespaced under `.oym` so it won't fight your theme. |
+| `wordpress-custom-html.html` | **Simple route:** one Custom HTML block, built-in form emails Mark via FormSubmit. All CSS namespaced under `.oym`. |
+| `avada/` (3 files) | **Avada form route:** the page split so your own Avada form drops into the middle. See below. |
 | `index.html` | Standalone full-page version for previewing in a browser. |
+
+## Two ways to build it — pick one
+
+- **Simple / fastest:** paste `wordpress-custom-html.html` into ONE Custom HTML
+  block. Uses the built-in form (emails Mark via FormSubmit after a one-time
+  activation click). Lead data passes through a third party.
+- **Avada form (recommended for keeping data in your stack):** use the three
+  files in `avada/`. Lead data stays in WordPress.
+
+### Avada route (3 blocks stacked on the page)
+
+1. **Custom HTML block** = paste `avada/BLOCK-1-top.html`
+2. **Shortcode block** = your Avada form shortcode (see `avada/BLOCK-2-form.txt`
+   for how to find your form ID and set the notification email to
+   mark@onyourmarktransportation.com)
+3. **Custom HTML block** = paste `avada/BLOCK-3-bottom.html`
+
+A shortcode will NOT run inside a Custom HTML block, which is why the form gets
+its own Shortcode block in the middle.
 
 ## Add it to WordPress (3rd-grade steps)
 

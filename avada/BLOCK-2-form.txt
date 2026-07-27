@@ -1,0 +1,48 @@
+================================================================
+AVADA ROUTE  ·  BLOCK 2 of 3  ·  your Avada form
+================================================================
+
+This block is NOT a Custom HTML block. A shortcode will NOT run
+inside a Custom HTML block, so the form needs its own block type.
+
+STEP 1 — Get your form's shortcode
+----------------------------------
+1. In WordPress admin, go to:  Avada  ->  Forms
+2. Click your form to open it.
+3. Look at your browser's address bar. The URL contains something
+   like  ...post.php?post=1234&action=edit
+   That number (1234) is your FORM ID.
+4. Your shortcode is:
+
+       [fusion_form form_post_id="1234" /]
+
+   (Replace 1234 with your real form ID. If Avada shows a ready-made
+   shortcode anywhere, use that instead.)
+
+STEP 2 — Add it to the page BETWEEN block 1 and block 3
+-------------------------------------------------------
+1. On the page, click the + to add a new block.
+2. Search for "Shortcode" and choose the Shortcode block.
+3. Paste your  [fusion_form form_post_id="1234" /]  into it.
+4. Make sure the block order top-to-bottom is:
+
+       Custom HTML   = BLOCK-1-top.html
+       Shortcode     = your Avada form  (this step)
+       Custom HTML   = BLOCK-3-bottom.html
+
+STEP 3 — Make the form email Mark
+---------------------------------
+Open the form in Avada -> Forms -> (your form) -> Form Options ->
+"Confirmation / Email" (wording varies by Avada version) and set the
+notification "Send To" email to:
+
+       mark@onyourmarktransportation.com
+
+Avada also stores every submission under Avada -> Form Entries, so
+you have a backup even if an email is missed.
+
+TIP — width / centering
+-----------------------
+If the form looks too wide, open the form's settings in Avada and set
+a max width (around 640px) and center alignment so it matches the
+heading above it.
