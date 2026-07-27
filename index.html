@@ -252,7 +252,11 @@
   .logo-img { height: 56px; width: auto; display: block; }
   .logo-img-footer { height: 54px; width: auto; background: #fff; padding: 8px 12px; border-radius: 6px; }
   .mbmca-img { height: 58px; width: auto; display: block; }
-  .mark-img { position: static; width: 100%; height: auto; display: block; }
+  /* Photo sits flush on the grey band below. The source PNG has some
+     white space under Mark; the negative margin-bottom crops it off.
+     Make it MORE negative (e.g. -10%) if a white gap remains, LESS if
+     his jacket gets cut. It scales with width, so it holds on mobile. */
+  .mark-img { position: static; width: 100%; height: auto; display: block; margin-bottom: -6%; }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 860px) {

@@ -40,7 +40,10 @@
        design runs edge to edge with no side/top/bottom margins */
     width:100vw; max-width:100vw;
     margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
-    margin-top:0; margin-bottom:0; overflow-x:hidden;
+    /* pull the block up into the theme's top padding. Make MORE negative
+       if a gap remains above the logo. (Cleanest fix: set the page's top
+       content padding to 0 in Avada Page Options.) */
+    margin-top:-60px; margin-bottom:0; overflow-x:hidden;
   }
   .oym * { margin:0; padding:0; box-sizing:border-box; }
   .oym img { max-width:100%; display:block; }
@@ -151,7 +154,9 @@
   .oym .logo-img { height:56px; width:auto; display:block; }
   .oym .logo-img-footer { height:54px; width:auto; background:#fff; padding:8px 12px; border-radius:6px; }
   .oym .mbmca-img { height:58px; width:auto; display:block; }
-  .oym .mark-img { position:static; width:100%; height:auto; display:block; }
+  /* negative margin-bottom crops the white space under Mark so he sits
+     flush on the grey band. More negative = crop more; scales with width. */
+  .oym .mark-img { position:static; width:100%; height:auto; display:block; margin-bottom:-6%; }
 
   /* RESPONSIVE */
   @media (max-width:860px) {
