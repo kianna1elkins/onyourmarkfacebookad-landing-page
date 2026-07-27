@@ -145,6 +145,25 @@
   }
   .btn-primary:hover { background: var(--green-dark); color: #fff; transform: translateY(-2px); }
   .btn-primary .arrow { font-size: 20px; }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--navy); font-weight: 800;
+    text-decoration: none; padding: 15px 28px; border-radius: 6px;
+    font-size: 16px; text-transform: uppercase; letter-spacing: .5px;
+    margin: 26px 0 0 14px; border: 2px solid var(--navy); transition: all .2s;
+  }
+  .btn-secondary:hover { background: var(--navy); color: #fff; transform: translateY(-2px); }
+  .btn-row { display: flex; flex-wrap: wrap; align-items: center; }
+  /* on-navy variant for the services section */
+  .btn-onnavy {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; color: var(--navy); font-weight: 800;
+    text-decoration: none; padding: 15px 30px; border-radius: 6px;
+    font-size: 16px; text-transform: uppercase; letter-spacing: .5px;
+    transition: all .2s;
+  }
+  .btn-onnavy:hover { background: var(--green); transform: translateY(-2px); }
+  .svc-cta { text-align: center; margin-top: 48px; }
 
   /* ---------- SERVICES ---------- */
   .services {
@@ -311,7 +330,10 @@
       <p class="big">Whether you're facing challenges with operations, staffing, compliance, marketing, technology, or growth, <b>come say hi at our booth while we're both at MBMCA.</b></p>
       <p class="form-nudge">Can't make it to the show &mdash; or want to work with me after MBMCA? <strong>Send a quick message</strong> and I'll personally follow up.</p>
       <div class="signature">Mark Szyperski</div>
-      <a class="btn-primary" href="#contact">Get in Touch with Mark <span class="arrow">&rarr;</span></a>
+      <div class="btn-row">
+        <a class="btn-primary" href="#contact">Get in Touch with Mark <span class="arrow">&rarr;</span></a>
+        <a class="btn-secondary" href="https://onyourmarktransportation.com/services/">Explore Our Services</a>
+      </div>
     </div>
   </div>
 </section>
@@ -370,6 +392,10 @@
         <h3>Grant Writing &amp; RFP Support</h3>
       </div>
     </div>
+
+    <div class="svc-cta">
+      <a class="btn-onnavy" href="https://onyourmarktransportation.com/services/">Learn More About Our Services <span>&rarr;</span></a>
+    </div>
   </div>
 </section>
 
@@ -380,10 +406,21 @@
     <p class="sub">Attending MBMCA? Stop by the booth &mdash; no appointment needed. Can't make it, or want to work with Mark after the show? Send a message below and he'll personally follow up.</p>
 
     <!--
-      NOTE FOR WORDPRESS: replace this <form> with your form builder embed
-      (the fields below map 1:1 to what you'll want to collect).
+      FORM DELIVERY: this posts to FormSubmit.co, which emails every
+      submission to mark@onyourmarktransportation.com. No backend needed.
+      IMPORTANT: the FIRST submission triggers a one-time confirmation
+      email to Mark that he must click once to activate delivery.
+      To change the destination, edit the email in the action URL below.
     -->
-    <form class="meet" onsubmit="handleSubmit(event)">
+    <form class="meet" action="https://formsubmit.co/mark@onyourmarktransportation.com" method="POST">
+      <!-- FormSubmit settings -->
+      <input type="hidden" name="_subject" value="New MBMCA landing page inquiry">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://onyourmarktransportation.com/thank-you/">
+      <!-- honeypot: bots fill this, humans don't -->
+      <input type="text" name="_honey" style="display:none">
+
       <div class="two">
         <div class="fld">
           <label for="fname">First Name</label>
@@ -461,12 +498,6 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Placeholder submit handler — swap for your WP form action / GHL-Zenoflo form.
-  function handleSubmit(e) {
-    e.preventDefault();
-    alert("Thanks for reaching out! In WordPress, connect this form to your form builder so messages reach Mark. (This is a demo handler.)");
-  }
 </script>
 
 </body>
